@@ -1,0 +1,70 @@
+POST http://localhost:3000/image HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+    "imageURL": "https://armedia.s3.us-west-2.amazonaws.com/32b3820630c5b13b32d10e261064712f/procedureImages/Procedure_image_17491608795763323262251062.jpg",
+    "clientId": "154",
+    "procedure": "",
+    "tags": ["test","belly","lipo"]
+}
+
+###
+GET http://localhost:3000/image/imagebyurl?url=https://armedia.s3.us-west-2.amazonaws.com/32b3820630c5b13b32d10e261064712f/procedureImages/Procedure_image_17491608795763323262251062.jpg HTTP/1.1
+content-type: application/json
+accept: application/json
+
+
+###
+GET http://localhost:3000/Image/Imagesbytags?tags=test,belly HTTP/1.1
+content-type: application/json
+accept: application/json
+
+###
+GET http://localhost:3000/Image/uniquetags HTTP/1.1
+content-type: application/json
+accept: application/json
+
+###
+GET 
+https://armedia.s3.us-west-2.amazonaws.com/32b3820630c5b13b32d10e261064712f/procedureImages/Procedure_image_17491608795763323262251062.jpg HTTP/1.1
+accept: image/jpeg
+
+###
+GET 
+https://services.leadconnectorhq.com/campaigns/?locationId=YVufYPWJjyBciTSAfjrT HTTP/1.1
+accept: application/json
+Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158
+
+###
+GET
+https://services.leadconnectorhq.com/workflows/?locationId=YVufYPWJjyBciTSAfjrT
+Accept: application/json
+Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158
+version: 2021-07-28
+
+###
+#"https://services.leadconnectorhq.com/campaigns/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+curl -L "https://services.leadconnectorhq.com/medias/files?altId=YVufYPWJjyBciTSAfjrT&sortBy=createdAt&sortOrder=asc&type=file&altType=location" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
+###
+curl -L "https://services.leadconnectorhq.com/locations/YVufYPWJjyBciTSAfjrT/customFields/" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"  
+
+###
+curl -L "https://services.leadconnectorhq.com/workflows/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
+###
+curl -L "https://services.leadconnectorhq.com/contacts/sXlpASgGRxXVwdOi8UVX/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
+###
+curl -L "https://services.leadconnectorhq.com/contacts/business/83-2581044/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
+###
+curl -L "https://services.leadconnectorhq.com/campaigns/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
+###
+curl -L 'https://services.leadconnectorhq.com/businesses/?locationId=YVufYPWJjyBciTSAfjrT' -H 'Accept: application/json' -H 'Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158' -H "version: 2021-07-28"
+
+###
+curl -L "https://services.leadconnectorhq.com/contacts/?locationId=YVufYPWJjyBciTSAfjrT" -H "Accept: application/json" -H "Authorization: Bearer pit-bd59973b-5300-4615-9a4b-79ee12b42158" -H "version: 2021-07-28"
+
