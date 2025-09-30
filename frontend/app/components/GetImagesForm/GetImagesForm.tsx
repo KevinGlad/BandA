@@ -81,12 +81,16 @@ export default function GetImagesForm() {
   };
 
   return (
-    <Stack direction="row" height="100" width="100%vw" spacing={2}>
+    <Stack
+      direction="row"
+      spacing={3}
+      sx={{ height: "500px", width: "100%vw" }}
+    >
       {/* Available Tags */}
       <Stack
         direction="column"
         height="100%"
-        width="20%"
+        width="16%"
         spacing={2}
         sx={{ display: justImage ? "none" : "flex" }}
       >
@@ -95,13 +99,13 @@ export default function GetImagesForm() {
         <Box
           sx={{
             width: "100%", // Set a fixed width for the scrollable box
-            height: "70",
-            minHeight: "70",
+            height: "100%",
+            minHeight: "100%",
             maxHeight: "100%", // Set a maximum height to enable vertical scrolling
             overflowY: "auto", // Enable vertical scrolling when content overflows
             border: "1px solid grey", // Add a border for visibility
             padding: 1,
-            display: "flex", // Arrange chips in a column
+            display: "flex", // Arrange chips in rows
             flexDirection: "row",
             gap: 1, // Spacing between chips
           }}
@@ -124,24 +128,27 @@ export default function GetImagesForm() {
       {/* Image Tags */}
       <Stack
         direction="column"
-        height="75"
-        width="20%"
         spacing={2}
-        sx={{ display: justImage ? "none" : "flex" }}
+        sx={{
+          height: "100%",
+          width: "16%",
+          display: justImage ? "none" : "flex",
+        }}
       >
         <Typography variant="h6">Filter Tags</Typography>
 
         <Box
           sx={{
             width: "100%", // Set a fixed width for the scrollable box
-            height: "70",
-            minHeight: "70",
+            height: "100%",
+            minHeight: "100%",
             maxHeight: "100%", // Set a maximum height to enable vertical scrolling
             overflowY: "auto", // Enable vertical scrolling when content overflows
             border: "1px solid grey", // Add a border for visibility
             padding: 1,
             display: "flex", // Arrange chips in a column
             flexDirection: "row",
+            overflow: "auto",
             gap: 1, // Spacing between chips
           }}
         >
@@ -163,9 +170,11 @@ export default function GetImagesForm() {
       {/* Images */}
       <Stack
         direction="column"
-        height={justImage == "" ? "75%" : "100%"}
-        width={justImage == "" ? "60%" : "100%"}
         spacing={2}
+        sx={{
+          // height: justImage == "" ? "75%" : "100%",
+          width: justImage == "" ? "68%" : "100%",
+        }}
       >
         <Typography variant="h6">Matching Images</Typography>
 
@@ -173,11 +182,12 @@ export default function GetImagesForm() {
           sx={{
             border: "1px solid grey", // Add a border for visibility
             position: "relative",
-            width: justImage == "" ? "50%" : "70%",
-            height: "70%",
-            maxHeight: "75%",
-            display: "flex",
-            justifyContent: "left",
+            width: "100%",
+            minHeight: "100%",
+            maxHeight: justImage == "" ? "100%" : "",
+            display: justImage == "" ? "flex" : "",
+            overflow: justImage == "" ? "auto" : "",
+            justifyContent: justImage == "" ? "left" : "center",
             alignItems: "middle",
           }}
         >
@@ -189,20 +199,12 @@ export default function GetImagesForm() {
                   position: "relative",
                   width:
                     justImage == "" || justImage != image.imageId
-                      ? "35%"
-                      : "100%",
-                  height:
-                    justImage == "" || justImage != image.imageId
-                      ? "35%"
-                      : "100%",
-                  maxHeight:
-                    justImage == "" || justImage != image.imageId
-                      ? "35%"
-                      : "100%",
-                  display:
-                    justImage == "" || justImage == image.imageId
-                      ? "flex"
-                      : "none",
+                      ? "200px"
+                      : "70%",
+                  // display:
+                  //   justImage == "" || justImage == image.imageId
+                  //     ? ""
+                  //     : "none",
                   justifyContent: "center",
                   alignItems: "middle",
                 }}

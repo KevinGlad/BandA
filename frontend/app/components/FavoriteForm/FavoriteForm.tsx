@@ -219,7 +219,6 @@ export default function FavoriteForm({
     event.preventDefault();
 
     //  validate form
-    console.log("SUBMIT ", mode);
     if (validateForm()) {
       try {
         // extract image ids from selectedImageList
@@ -260,9 +259,17 @@ export default function FavoriteForm({
     );
   } else {
     return (
-      <Stack direction="column" height="100" width="100%vw" spacing={2}>
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{ height: "100", width: "100%vw", gap: "2" }}
+      >
         {/* Four Stacks in Top Stack*/}
-        <Stack direction="row" height="75%" width="100%vw" spacing={2}>
+        <Stack
+          direction="row"
+          spacing={3}
+          sx={{ height: "75", width: "100%vw" }}
+        >
           {/* Form Input */}
           <Stack direction="column" spacing={2}>
             <Box
@@ -313,7 +320,7 @@ export default function FavoriteForm({
                 <Button
                   sx={{ width: "50%" }}
                   variant="contained"
-                  color="secondary"
+                  color="secondary" 
                   onClick={handleFormCancel}
                 >
                   Cancel
@@ -332,7 +339,11 @@ export default function FavoriteForm({
           </Stack>
 
           {/* Available Tags */}
-          <Stack direction="column" height="100%" width="20%" spacing={2}>
+          <Stack
+            direction="column"
+            spacing={2}
+            sx={{ height: "100%", width: "20%" }}
+          >
             <Typography variant="h6">Available Tags</Typography>
 
             <Box
@@ -365,7 +376,11 @@ export default function FavoriteForm({
           </Stack>
 
           {/* Image Tags */}
-          <Stack direction="column" height="75" width="20%" spacing={2}>
+          <Stack
+            direction="column"
+            spacing={2}
+            sx={{ height: "75", width: "20%" }}
+          >
             <Typography variant="h6">Filter Tags</Typography>
 
             <Box
@@ -398,19 +413,26 @@ export default function FavoriteForm({
           </Stack>
 
           {/* Images */}
-          <Stack direction="column" height="75%" width="60%" spacing={2}>
+          <Stack
+            direction="column"
+            spacing={2}
+            sx={{ height: "75", width: "60%" }}
+          >
             <Typography variant="h6">Matching Images</Typography>
 
             <Box
               sx={{
                 border: "1px solid grey", // Add a border for visibility
                 position: "relative",
-                width: "50%",
-                height: "70%",
-                maxHeight: "75%",
+                width: "100%",
+                // height: "70%",
+                // maxHeight: "75%",
                 display: "flex",
+                direction: "row",
                 justifyContent: "left",
                 alignItems: "middle",
+                flexWrap: "wrap",
+                overflow: "auto"
               }}
             >
               {imageList.map((image: ImageDocDTO) => {
@@ -421,17 +443,17 @@ export default function FavoriteForm({
                       selectedImage.imageId == image.imageId
                   ) == true
                 ) {
-                  imageBoarder = "5px solid blue";
+                  imageBoarder = "3px solid blue";
                 }
                 return (
                   <Box
                     sx={{
-                      border: imageBoarder, // Add a border for visibility
+                      border: imageBoarder, // Shows selected or not
                       position: "relative",
-                      width: "33%",
-                      height: "33%",
-                      maxHeight: "33%",
-                      display: "flex",
+                      width: "200px",
+                      // height: "200px",
+                      // display: "flex",
+                      // direction: "row",
                       justifyContent: "center",
                       alignItems: "middle",
                     }}
@@ -442,7 +464,7 @@ export default function FavoriteForm({
                         id={image.imageId}
                         imageURL={image.bImageURL}
                         localFirst={true}
-                        imgProps={{ width: 10 }}
+                        imgProps={{}}
                       ></ImageDisplay>
                       <ImageDisplay
                         id={image.imageId}
@@ -471,6 +493,7 @@ export default function FavoriteForm({
               height: "100%",
               maxHeight: "100%",
               display: "flex",
+              direction: "row",
               justifyContent: "left",
               alignItems: "middle",
             }}
@@ -479,13 +502,8 @@ export default function FavoriteForm({
               return (
                 <Box
                   sx={{
-                    border: "2px solid blue", // Add a border for visibility
-                    position: "relative",
-                    width: "5",
-                    height: "10%",
-                    minHeight: "50%",
-                    maxHeight: "5",
-                    display: "flex",
+                    border: "3px solid blue", // Add a border for visibility
+                    width: "150px",
                     justifyContent: "center",
                     alignItems: "middle",
                   }}
@@ -496,14 +514,14 @@ export default function FavoriteForm({
                       id={image.imageId}
                       imageURL={image.bImageURL}
                       localFirst={true}
-                      imgProps={{ width: 1, height: 1 }}
+                      imgProps={{}}
                     ></ImageDisplay>
                     <ImageDisplay
                       id={image.imageId}
                       imageClickHandler={selectedImageOnClickHandler}
                       imageURL={image.aImageURL}
                       localFirst={true}
-                      imgProps={{ width: 1, height: 1 }}
+                      imgProps={{}}
                     ></ImageDisplay>
                   </Stack>
                 </Box>
