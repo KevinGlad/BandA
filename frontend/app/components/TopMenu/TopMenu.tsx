@@ -6,7 +6,7 @@ import "./TopMenu.css"
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="nav-bar">
       <NavLink
         to="/home"
         className={({ isActive }) => (isActive ? 'nav-item active-link' : 'nav-item')}

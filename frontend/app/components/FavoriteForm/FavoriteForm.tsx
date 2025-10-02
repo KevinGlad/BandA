@@ -262,13 +262,13 @@ export default function FavoriteForm({
       <Stack
         direction="column"
         spacing={2}
-        sx={{ height: "100", width: "100%vw", gap: "2" }}
+        sx={{ height: "100vh", width: "100vw", gap: "2" }}
       >
         {/* Four Stacks in Top Stack*/}
         <Stack
           direction="row"
           spacing={3}
-          sx={{ height: "75", width: "100%vw" }}
+          sx={{ height: "75%", width: "100%" }}
         >
           {/* Form Input */}
           <Stack direction="column" spacing={2}>

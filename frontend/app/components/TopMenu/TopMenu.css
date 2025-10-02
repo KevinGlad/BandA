@@ -1,8 +1,8 @@
 /* Styling for the navigation bar container */
 .nav-bar {
   display: flex;
-  justify-content: center; /* Center the links horizontally */
-  background-color: #333;
+  justify-content: right; /* Center the links horizontally */
+  background-color: #ffffff;
   padding: 10px;
   border-radius: 8px;
   list-style: none; /* Remove bullet points from the list */
@@ -11,34 +11,26 @@
 
 /* Styling for all individual navigation items */
 .nav-item {
-  margin: 0 15px; /* Add space between links */
-}
-
-/* Styling for the actual link element inside each item */
-.nav-item a {
-  text-decoration: none; /* Remove the underline from links */
-  color: #fff; /* White text color for all links */
+  color: #000000;
   padding: 8px 12px;
-  border-radius: 5px;
   transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin: 0 15px; /* Add space between links */
+  text-decoration: none; /* Remove the underline from links */
 }
 
 /* Hover effect for all navigation links */
-.nav-item a:hover {
-  background-color: #575757;
-  color: #ddd;
+.nav-item:hover {
+  color: #357ebd;
+  border-bottom: 3px solid #357ebd; /* Add a bottom border for emphasis */
 }
 
 /* --- Styling for the active link only --- */
 .active-link {
-  background-color: #4caf50; /* A distinct background color for the active link */
-  color: #fff; /* Ensure text remains white */
-  font-weight: bold; /* Make the active link text bold */
-  border-bottom: 3px solid #ffcc00; /* Add a bottom border for emphasis */
+  color: #357ebd;
+  border-bottom: 3px solid #357ebd; /* Add a bottom border for emphasis */
 }
 
 /* Optionally, you can add more emphasis on the active link's hover state */
 .active-link:hover {
-  background-color: #5cb85c;
-  color: #fff;
+  font-weight: bold; /* Make the active link text bold */
 }

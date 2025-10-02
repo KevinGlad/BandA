@@ -84,7 +84,7 @@ export default function GetImagesForm() {
     <Stack
       direction="row"
       spacing={3}
-      sx={{ height: "500px", width: "100%vw" }}
+      sx={{ height: "100vh", width: "100vw" }}
     >
       {/* Available Tags */}
       <Stack

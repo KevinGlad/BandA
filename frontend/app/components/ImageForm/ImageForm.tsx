@@ -279,14 +279,16 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
   };
 
   return (
-    <Grid container spacing={1} height="100vh" width="100%vw">
-      <Grid
-        flexDirection="column"
+    <Stack direction="row" spacing={1} sx={{ height: "80vh", width: "100vw" }}>
+      <Stack
+        direction="column"
         spacing={2}
-        width="60%"
-        maxWidth="60%"
-        height="100%"
-        sx={{ border: "1px solid yellow" }}
+        sx={{
+          width: "60%",
+          maxwidth: "60%",
+          height: "100%",
+          boarder: "1px solid yellow",
+        }}
       >
         {/* Form Data */}
         <Box
@@ -296,9 +298,9 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
             display: "flex",
             flexDirection: "column",
             gap: 1,
-            width: "full",
-            maxWidth: "full",
-            height: "50%",
+            width: "100%",
+            maxWidth: "100%",
+            height: "54%",
             border: "1px solid grey",
           }}
         >
@@ -344,7 +346,7 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
             }}
           />
 
-          <Stack width="100%" direction="row" spacing={1}>
+          <Stack direction="row" spacing={1} sx={{ width: "100%" }}>
             <TextField
               label="Client Id"
               name="clientId"
@@ -375,21 +377,22 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
         </Box>
 
         {/* Available Tags */}
+
         <Typography variant="h6">Available Tags</Typography>
 
         <Box
           sx={{
             width: "97%", // Set a fixed width for the scrollable box
             height: "20%",
+            minHeight: "20%",
             maxHeight: "20%", // Set a maximum height to enable vertical scrolling
             overflowY: "auto", // Enable vertical scrolling when content overflows
             border: "1px solid grey", // Add a border for visibility
             padding: 1,
-            display: "flex", // Arrange chips in a column
+            display: "flex",
             flexDirection: "row",
-            gap: 1, // Spacing between chips      display: 'flex',
+            gap: 1, // Spacing between chips
             flexWrap: "wrap",
-            // p: 2, // padding around the container
           }}
         >
           {availableTags.map((label) => (
@@ -406,7 +409,92 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
           ))}
         </Box>
 
-        {/* Image Tags */}
+
+        {/* Form Buttons */}
+        <Box
+          sx={{
+            width: "50%",
+            height: "10%",
+          }}
+        >
+          <ButtonGroup variant="contained">
+            <Button
+              sx={{ width: "50%" }}
+              variant="contained"
+              color="secondary"
+              onClick={handleFormCancel}
+            >
+              Cancel
+            </Button>
+            <Button
+              sx={{ width: "50%" }}
+              type="submit"
+              variant="contained"
+              color="primary"
+              onClick={handleFormSubmit}
+            >
+              Save
+            </Button>
+          </ButtonGroup>
+        </Box>
+      </Stack>
+
+      <Stack direction="column" sx={{ width: "35%", height: "100%" }}>
+        <Stack direction="row" spacing={2} sx={{width: "100%", height: "60%"}}>
+        <Stack direction="column" sx={{ width: "100%", height: "100%" }}>
+          {/* B Image */}
+          <Typography variant="h6">Before</Typography>
+
+          <Box
+            sx={{
+              // display: "flex",
+              // // flexDirection: "column",
+              // gap: 2,
+              // width: "auto",
+              maxWidth: "100%",
+
+              // height: "45%",
+              // maxHeight: "45%",
+            }}
+          >
+            <ImageDisplay
+              id=""
+              imageClickHandler={() => {}}
+              imageURL={formData.bImageURL}
+              localFirst={false}
+              imgProps={{ objectFit: "contain" }}
+            ></ImageDisplay>
+          </Box>
+        </Stack>
+        <Stack direction="column" sx={{ width: "100%", height: "100%" }}>
+          {/* a Image */}
+          <Typography variant="h6">After</Typography>
+
+          <Box
+            sx={{
+              // display: "flex",
+              // // flexDirection: "column",
+              // gap: 2,
+              width: "100%",
+              // maxWidth: "100%",
+
+              height: "45%",
+              maxHeight: "45%",
+              objectFit: "contain",
+            }}
+          >
+            <ImageDisplay
+              id=""
+              imageClickHandler={() => {}}
+              imageURL={formData.aImageURL}
+              localFirst={false}
+              imgProps={{}}
+            ></ImageDisplay>
+          </Box>
+          </Stack>
+        </Stack>
+        
+                {/* Image Tags */}
 
         <Typography variant="h6">Image Tags</Typography>
 
@@ -415,13 +503,14 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
             width: "97%", // Set a fixed width for the scrollable box
             maxWidth: "100%",
             height: "10%",
-            maxHeight: "10%", // Set a maximum height to enable vertical scrolling
+            minHeight: "20%",
+            maxHeight: "20%", // Set a maximum height to enable vertical scrolling
             overflowY: "auto", // Enable vertical scrolling when content overflows
             border: "1px solid red", // Add a border for visibility
             padding: 1,
-            display: "flex", // Arrange chips in a column
+            display: "flex", // Arrange chips in a row
             flexDirection: "row",
-            gap: 1, // Spacing between chips      display: 'flex',
+            gap: 1, // Spacing between chips
             flexWrap: "wrap",
           }}
         >
@@ -459,93 +548,7 @@ export default function ImageForm({ mode, imageId, parent }: ImageFormProps) {
           />
         </Box>
 
-        {/* Form Buttons */}
-        <Box
-          sx={{
-            width: "50%",
-            height: "10%",
-          }}
-        >
-          <ButtonGroup variant="contained">
-            <Button
-              sx={{ width: "50%" }}
-              variant="contained"
-              color="secondary"
-              onClick={handleFormCancel}
-            >
-              Cancel
-            </Button>
-            <Button
-              sx={{ width: "50%" }}
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={handleFormSubmit}
-            >
-              Save
-            </Button>
-          </ButtonGroup>
-        </Box>
-      </Grid>
-
-      <Grid
-        flexDirection="column"
-        spacing={2}
-        columns={3}
-        width="35%"
-        maxWidth="35%"
-        height="100%"
-      >
-        {/* B Image */}
-        <Typography variant="h6">Before</Typography>
-
-        <Box
-          sx={{
-            // display: "flex",
-            // // flexDirection: "column",
-            // gap: 2,
-            width: "100%",
-            maxWidth: "100%",
-
-            height: "45%",
-            maxHeight: "45%",
-            objectFit: "contain",
-          }}
-        >
-          <ImageDisplay
-            id=""
-            imageClickHandler={() => {}}
-            imageURL={formData.bImageURL}
-            localFirst={false}
-            imgProps={{}}
-          ></ImageDisplay>
-        </Box>
-
-        {/* a Image */}
-        <Typography variant="h6">After</Typography>
-
-        <Box
-          sx={{
-            // display: "flex",
-            // // flexDirection: "column",
-            // gap: 2,
-            width: "100%",
-            maxWidth: "100%",
-
-            height: "45%",
-            maxHeight: "45%",
-            objectFit: "contain",
-          }}
-        >
-          <ImageDisplay
-            id=""
-            imageClickHandler={() => {}}
-            imageURL={formData.aImageURL}
-            localFirst={false}
-            imgProps={{}}
-          ></ImageDisplay>
-        </Box>
-      </Grid>
-    </Grid>
+      </Stack>
+    </Stack>
   );
 }
